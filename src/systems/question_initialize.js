@@ -1,0 +1,2 @@
+const UIButtonBehavior = (entities, { input }) => {
+}
