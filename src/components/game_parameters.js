@@ -5,5 +5,8 @@ export default {
     },
     correct_count: 0,
     wrong_count: 0,
-    current_question: null
+    current_question: null,
+    opentdb_token: null,
+    question_answered: false,
+    question_asked: false,
 }
