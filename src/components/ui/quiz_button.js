@@ -39,6 +39,23 @@ class QuizButton extends PureComponent {
     const hovering = this.props.isHovering || false;
     const id = this.props.id || "";
 
+    const wrong = this.props.isWrongAnswer || false;
+    const correct = this.props.isCorrectAnswer || false;
+
+    let outline_fx = "";
+    let outline_color = "";
+
+    if(hovering) {
+      outline_color = "#EEE";
+      outline_fx = `0 0 4px 4px ${outline_color}`;
+    }else if(wrong){
+      outline_color = "#E11";
+      outline_fx = `0 0 8px 4px ${outline_color}`;
+    }else if(correct) {
+      outline_color = "#1E1";
+      outline_fx = `0 0 8px 8px ${outline_color}`;
+    }
+
     return (
       <div
         id={id}
@@ -55,18 +72,21 @@ class QuizButton extends PureComponent {
           backgroundImage: `url(${pressed? btn_textures[btn_color][1] : btn_textures[btn_color][0]})`,
           backgroundSize: `${size.w * scale}px ${size.h * scale}px`,
           color: "white",
-          textShadow: "grey 0.1em 0.1em 0.2em",
-          boxShadow: `${hovering ? "0 0 8px 4px #EEE": ""}`,
-          backgroundColor: `${hovering ? "#EEE": ""}`,
+          textShadow: "#000 0.1em 0.1em 0.2em",
+          boxShadow: outline_fx,
+          backgroundColor: outline_color,
           textAlign: "center",
           overflow: "clip",
           display: (hidden? 'none': 'block')
         }}
       >
-        <span style={{
-          position: "relative",
-          top: ((size.h /2) * scale) * 0.5
-        }}>{text}</span>
+        <span 
+          id={id}
+          style={{
+            position: "relative",
+            top: ((size.h /2) * scale) * (pressed? 0.6 : 0.5)
+          }}
+        >{text}</span>
       </div>
     );
   }
