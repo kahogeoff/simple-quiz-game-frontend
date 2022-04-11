@@ -11,11 +11,12 @@ class QuestionText extends PureComponent {
         style={{ 
             position: "absolute", 
             top: window.innerHeight * 0.3, 
-            width: window.innerWidth, 
+            left: window.innerWidth*0.1,
+            right: window.innerWidth*0.1,
             fontSize: font_size * scale,
             fontFamily: 'Kenney Future Narrow',
             color: "white",
-            textShadow: "grey 0.1em 0.1em 0.2em",
+            textShadow: "#000 0.1em 0.1em 0.2em",
             textAlign: "center"
         }}
       >

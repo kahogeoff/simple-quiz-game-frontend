@@ -20,7 +20,7 @@ class CounterText extends PureComponent {
         fontSize: font_size * scale,
         fontFamily: 'Kenney Future Narrow',
         color: "white",
-        textShadow: "grey 0.1em 0.1em 0.2em",
+        textShadow: "#000 0.1em 0.1em 0.2em",
       }}>
         <span>{text}</span>
       </div>
